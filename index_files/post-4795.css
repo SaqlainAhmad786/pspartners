@@ -20,7 +20,7 @@
 
 .elementor-4795 .elementor-element.elementor-element-1c5d2488:not(.elementor-motion-effects-element-type-background),
 .elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-	background-color: var(--e-global-color-f807131);
+	/* background-color: var(--e-global-color-f807131); */
 	background-image: url("../assets/hero-img.jpg");
 	background-position: left;
 	background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 .elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
 	background-color: transparent;
 	--background-overlay: '';
-	background-image: linear-gradient(90deg, var(--e-global-color-f807131) 40%, var(--e-global-color-eb43f9a) 90%);
+	background-image: linear-gradient(90deg, white 40%, rgba(255, 255, 255, 0) 90%);
 }
 
 .elementor-4795 .elementor-element.elementor-element-1bdbdc07 {
@@ -6155,7 +6155,7 @@ body.rtl .elementor-4795 .elementor-element.elementor-element-27833941 {
 .elementor-4795 .elementor-element.elementor-element-48a2d745>.elementor-background-slideshow::before,
 .elementor-4795 .elementor-element.elementor-element-48a2d745>.e-con-inner>.elementor-background-slideshow::before,
 .elementor-4795 .elementor-element.elementor-element-48a2d745>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
-	background-color: var(--e-global-color-f807131);
+	background-color: #3a6f43;
 	--background-overlay: '';
 }
 
@@ -7834,6 +7834,10 @@ body.rtl .elementor-4795 .elementor-element.elementor-element-27833941 {
 
 @media(max-width:767px) {
 
+	.responsiveCenter {
+		text-align: center;
+	}
+
 	.elementor-4795 .elementor-element.elementor-element-1c5d2488:not(.elementor-motion-effects-element-type-background),
 	.elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-motion-effects-container>.elementor-motion-effects-layer {
 		background-position: -100% 0px;
@@ -7842,7 +7846,7 @@ body.rtl .elementor-4795 .elementor-element.elementor-element-27833941 {
 	.elementor-4795 .elementor-element.elementor-element-1c5d2488 {
 		--overlay-opacity: 0.5;
 		--padding-top: 130px;
-		--padding-bottom: 260px;
+		--padding-bottom: 0px;
 		--padding-left: 0px;
 		--padding-right: 0px;
 	}
