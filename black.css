@@ -5,6 +5,22 @@
 .elementor-4795 .elementor-element.elementor-element-1c5d2488>.e-con-inner>.elementor-background-slideshow::before,
 .elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
     background-image: linear-gradient(90deg, black 40%, rgba(255, 255, 255, 0) 90%) !important;
+    /* background-image: none; */
+    /* background-color: black !important; */
+}
+
+@media (width<768px) {
+
+    .elementor-4795 .elementor-element.elementor-element-1c5d2488::before,
+    .elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-background-video-container::before,
+    .elementor-4795 .elementor-element.elementor-element-1c5d2488>.e-con-inner>.elementor-background-video-container::before,
+    .elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-background-slideshow::before,
+    .elementor-4795 .elementor-element.elementor-element-1c5d2488>.e-con-inner>.elementor-background-slideshow::before,
+    .elementor-4795 .elementor-element.elementor-element-1c5d2488>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
+        /* background-image: linear-gradient(90deg, black 40%, rgba(255, 255, 255, 0) 90%) !important; */
+        background-image: none;
+        background-color: black !important;
+    }
 }
 
 .elementor-55 .elementor-element.elementor-element-df50ec7::before,

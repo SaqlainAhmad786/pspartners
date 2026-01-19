@@ -17,10 +17,11 @@
 
 .elementor-4426 .elementor-element.elementor-element-941fa9e:not(.elementor-motion-effects-element-type-background),
 .elementor-4426 .elementor-element.elementor-element-941fa9e>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-	background-image: url("../assets/top-bg.jpg");
+	/* background-image: url("../assets/top-bg.jpg"); */
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-color: #1a1a1a;
 }
 
 .elementor-4426 .elementor-element.elementor-element-941fa9e::before,
@@ -29,7 +30,7 @@
 .elementor-4426 .elementor-element.elementor-element-941fa9e>.elementor-background-slideshow::before,
 .elementor-4426 .elementor-element.elementor-element-941fa9e>.e-con-inner>.elementor-background-slideshow::before,
 .elementor-4426 .elementor-element.elementor-element-941fa9e>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
-	background-color: #3a6f43;
+	background-color: #1a1a1a;
 	--background-overlay: '';
 }
 
@@ -1045,7 +1046,7 @@ body.rtl .elementor-4426 .elementor-element.elementor-element-d3da51a {
 
 .elementor-4426 .elementor-element.elementor-element-cc3b6a6:not(.elementor-motion-effects-element-type-background),
 .elementor-4426 .elementor-element.elementor-element-cc3b6a6>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-	background-image: url("https://biznova.themewolfs.com/wp-content/uploads/2025/09/team-1.webp");
+	background-image: url("../assets/khaled.jpg");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;

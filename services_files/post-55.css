@@ -127,7 +127,7 @@
     --flex-wrap-mobile: wrap;
     --overlay-opacity: 0.5;
     --margin-top: 0px;
-    --margin-bottom: -80px;
+    --margin-bottom: -110px;
     --margin-left: 0px;
     --margin-right: 0px;
     --padding-top: 15px;
@@ -439,7 +439,7 @@
         --min-height: 90px;
         --justify-content: center;
         --margin-top: 0px;
-        --margin-bottom: -90px;
+        --margin-bottom: -102px;
         --margin-left: 0px;
         --margin-right: 0px;
         --padding-top: 0px;
@@ -621,7 +621,7 @@
     }
 
     .elementor-55 .elementor-element.elementor-element-7e36212 {
-        --width: 18%;
+        --width: 24%;
     }
 }
 

@@ -17,8 +17,9 @@
 
 .elementor-2241 .elementor-element.elementor-element-62d6883:not(.elementor-motion-effects-element-type-background),
 .elementor-2241 .elementor-element.elementor-element-62d6883>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-	background-image: url("../assets/top-bg.jpg");
+	/* background-image: url("../assets/top-bg.jpg"); */
 	background-position: center center;
+	background-color: #1a1a1a;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -29,7 +30,7 @@
 .elementor-2241 .elementor-element.elementor-element-62d6883>.elementor-background-slideshow::before,
 .elementor-2241 .elementor-element.elementor-element-62d6883>.e-con-inner>.elementor-background-slideshow::before,
 .elementor-2241 .elementor-element.elementor-element-62d6883>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
-	background-color: #3a6f43;
+	background-color: #1a1a1a;
 	--background-overlay: '';
 }
 
@@ -162,10 +163,10 @@
 	border-style: solid;
 	--border-style: solid;
 	border-width: 1px 1px 1px 1px;
-	--border-top-width: 1px;
-	--border-right-width: 1px;
-	--border-bottom-width: 1px;
-	--border-left-width: 1px;
+	--border-top-width: 0px;
+	--border-right-width: 0px;
+	--border-bottom-width: 0px;
+	--border-left-width: 0px;
 	border-color: var(--e-global-color-d8590a7);
 	--border-color: var(--e-global-color-d8590a7);
 	--border-radius: 20px 20px 20px 20px;

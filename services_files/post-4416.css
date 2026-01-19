@@ -17,8 +17,9 @@
 
 .elementor-4416 .elementor-element.elementor-element-2ac8403:not(.elementor-motion-effects-element-type-background),
 .elementor-4416 .elementor-element.elementor-element-2ac8403>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-	background-image: url("../assets/top-bg.jpg");
+	/* background-image: url("../assets/top-bg.jpg"); */
 	background-position: center center;
+	background-color: #1a1a1a;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -29,7 +30,8 @@
 .elementor-4416 .elementor-element.elementor-element-2ac8403>.elementor-background-slideshow::before,
 .elementor-4416 .elementor-element.elementor-element-2ac8403>.e-con-inner>.elementor-background-slideshow::before,
 .elementor-4416 .elementor-element.elementor-element-2ac8403>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
-	background-color: #3a6f43;
+	background-color: #1a1a1a;
+	backdrop-filter: blur(4px);
 	--background-overlay: '';
 }
 
@@ -124,7 +126,7 @@
 
 .elementor-4416 .elementor-element.elementor-element-f5e8098 {
 	--display: grid;
-	--e-con-grid-template-columns: repeat(3, 1fr);
+	--e-con-grid-template-columns: repeat(2, 1fr);
 	--e-con-grid-template-rows: repeat(2, 1fr);
 	--grid-auto-flow: row;
 	--padding-top: 0px;
@@ -4015,7 +4017,8 @@ body.rtl .elementor-4416 .elementor-element.elementor-element-7836edf {
 .elementor-4416 .elementor-element.elementor-element-2bfc851>.elementor-background-slideshow::before,
 .elementor-4416 .elementor-element.elementor-element-2bfc851>.e-con-inner>.elementor-background-slideshow::before,
 .elementor-4416 .elementor-element.elementor-element-2bfc851>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
-	background-color: #3a6f43;
+	background-color: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(4px);
 	--background-overlay: '';
 }
 

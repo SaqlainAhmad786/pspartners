@@ -540,6 +540,7 @@
 		integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="./index_files/wp-emoji-release.min.js.download" defer=""></script>
+	<link rel="stylesheet" href="./black.css">
 </head>
 
 <body
@@ -618,11 +619,12 @@
 				<div class="e-con-inner">
 					<div class="elementor-element elementor-element-71a63d0 e-con-full e-flex e-con e-child"
 						data-id="71a63d0" data-element_type="container">
-						<div class="elementor-element elementor-element-ac8a530 elementor-widget elementor-widget-image"
+						<a href="/"
+							class="elementor-element elementor-element-ac8a530 elementor-widget elementor-widget-image"
 							data-id="ac8a530" data-element_type="widget" data-widget_type="image.default">
-							<img src="./assets/logo2.png" style="height: 65px; object-fit: contain; "
+							<img src="./assets/logo-new.png" style="width: 200px; object-fit: contain; "
 								class="attachment-large size-large wp-image-4360" alt="" decoding="async">
-						</div>
+						</a>
 					</div>
 					<div class="elementor-element elementor-element-45ca974 e-con-full e-flex e-con e-child"
 						data-id="45ca974" data-element_type="container">
@@ -644,25 +646,29 @@
 											class="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon">
 											<li id="menu-item-3125"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3125 nav-item elementskit-mobile-builder-content"
-												data-vertical-menu="750px"><a href="/"
-													class="ekit-menu-nav-link">Home</a></li>
+												data-vertical-menu="750px"><a href="/" class="ekit-menu-nav-link"
+													style="color:white!important;">Home</a></li>
 											<li id="menu-item-3125"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3125 nav-item elementskit-mobile-builder-content"
 												data-vertical-menu="750px"><a href="about-us.html"
-													class="ekit-menu-nav-link">About
+													class="ekit-menu-nav-link" style="color:white!important;">About
 													us</a></li>
 											<li id="menu-item-3125"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3125 nav-item elementskit-mobile-builder-content"
 												data-vertical-menu="750px"><a href="services.html"
-													class="ekit-menu-nav-link">Services</a></li>
+													class="ekit-menu-nav-link"
+													style="color:white!important;">Services</a></li>
 											<li id="menu-item-2391"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2391 nav-item elementskit-mobile-builder-content"
 												data-vertical-menu="750px"><a href="contact.html"
-													class="ekit-menu-nav-link">Contact</a></li>
+													class="ekit-menu-nav-link"
+													style="color:white!important;">Contact</a></li>
 										</ul>
 										<div class="elementskit-nav-identity-panel"><a class="elementskit-nav-logo"
-												href="/"><img src="./assets/logo2.png" title="Pathway Strategy Partners"
-													alt="Pathway Strategy Partners" decoding="async"></a><button
+												href="/"><img src="./assets/logo-new.png"
+													style="max-height: 80px; max-width: 180px;"
+													title="Pathway Strategy Partners" alt="Pathway Strategy Partners"
+													decoding="async"></a><button
 												class="elementskit-menu-close elementskit-menu-toggler"
 												type="button">X</button></div>
 									</div>
@@ -679,11 +685,79 @@
 							data-id="831f938" data-element_type="widget" data-widget_type="jkit_button.default">
 							<div
 								class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795__6942396d8ec0c">
-								<a href="./contact.html" class="jkit-button-wrapper" style="color: white;">Get In Touch
-									<i class="fa-solid fa-arrow-right" style="width: 40px; rotate: -45deg;"></i></a>
+								<button data-cal-link="pspartners/30min" data-cal-namespace="30min"
+									`data-cal-config='{"layout":"month_view","theme":"dark"}'
+									class="jkit-button-wrapper" style="color: white;">Book a free Consultation
+									<i class="fa-solid fa-arrow-right"
+										style="width: 40px; rotate: -45deg;"></i></button>
 							</div>
 						</div>
 					</div>
+
+					<div id="google_translate_element"></div>
+					<select class="customLangSelect notranslate" id="languageSwitcher" translate="no">
+						<option value="">🔤Lang</option>
+						<option value="en">English</option>
+						<option value="ar">العربية</option>
+						<option value="zh-CN">中文</option>
+						<option value="ru">Русский</option>
+					</select>
+
+					<style>
+						/* Hide Google UI completely */
+						#google_translate_element {
+							position: absolute;
+							opacity: 0;
+							pointer-events: none;
+						}
+
+						/* Custom Select Styling */
+						.customLangSelect {
+							z-index: 99;
+							margin: auto;
+							width: 96px;
+							height: 44px;
+							padding: 0 12px;
+							border-radius: 8px;
+							border: 1px solid #e5e7eb;
+							background: #ffffff;
+							font-size: 14px;
+							cursor: pointer;
+						}
+					</style>
+
+					<script>
+						function setLanguage(lang) {
+							// Google Translate cookie format
+							document.cookie = `googtrans=/en/${lang}; path=/`;
+							document.cookie = `googtrans=/en/${lang}; path=/; domain=${location.hostname}`;
+
+							// RTL handling
+							document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+							// Reload to apply translation
+							location.reload();
+						}
+
+						// On dropdown change
+						document.getElementById("languageSwitcher").addEventListener("change", function () {
+							setLanguage(this.value);
+						});
+
+						// Initialize Google Translate
+						function googleTranslateElementInit() {
+							new google.translate.TranslateElement(
+								{
+									pageLanguage: "en",
+									includedLanguages: "en,ar,zh-CN,ru",
+									autoDisplay: false
+								},
+								"google_translate_element"
+							);
+						}
+					</script>
+
+					<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 				</div>
 			</div>
 		</div>
@@ -696,21 +770,22 @@
 			<div class="elementor-element elementor-element-1bdbdc07 e-flex e-con-boxed e-con e-child"
 				data-id="1bdbdc07" data-element_type="container">
 				<div class="e-con-inner">
-					<p class="responsiveCenter"
-						style="color: white; font-weight: 600; font-size: 14px; color: rgba(0, 0, 0, 0.8); font-style: italic;">
+					<!-- <p class="responsiveCenter"
+						style="color: white; font-weight: 600; font-size: 14px; color: white; font-style: italic; margin-bottom: 0;">
 						<span>GLOBAL
 							VISION LOCAL PRECISION</span>
-					</p>
+					</p> -->
 					<div class="elementor-element elementor-element-17bcd1f0 e-con-full e-flex e-con e-child"
 						data-id="17bcd1f0" data-element_type="container">
 						<div class="elementor-element elementor-element-73b710c9 elementor-widget elementor-widget-heading animated fadeInUp"
 							data-id="73b710c9" data-element_type="widget"
 							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_mobile&quot;:&quot;none&quot;}"
 							data-widget_type="heading.default">
-							<h1 class="elementor-heading-title elementor-size-default" style="color:rgba(0, 0, 0, 0.9)">
-								Performance. Access.</h1>
+							<h1 class="elementor-heading-title elementor-size-default"
+								style="color:white; font-size: 68px;">
+								Operate Smarter, <br> Grow Stronger...</h1>
 						</div>
-						<div class="elementor-element elementor-element-3aeddd1c e-con-full e-flex e-con e-child"
+						<!-- <div class="elementor-element elementor-element-3aeddd1c e-con-full e-flex e-con e-child"
 							data-id="3aeddd1c" data-element_type="container">
 							<div class="elementor-element elementor-element-3d38bf03 elementor-hidden-mobile elementor-view-default elementor-widget elementor-widget-icon animated rotateIn"
 								data-id="3d38bf03" data-element_type="widget"
@@ -735,18 +810,17 @@
 									Commercialization. Clinical
 									Supply.</h2>
 							</div>
-						</div>
+						</div> -->
 						<div class="elementor-element elementor-element-5b2ee8e7 e-con-full e-flex e-con e-child"
 							data-id="5b2ee8e7" data-element_type="container">
 							<div class="elementor-element elementor-element-547486c8 elementor-widget elementor-widget-text-editor animated fadeIn"
 								data-id="547486c8" data-element_type="widget"
 								data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
 								data-widget_type="text-editor.default">
-								<p style="color:rgba(0, 0, 0, 0.9)">Pathway Strategy Partners helps organizations
-									improve results by optimizing
-									performance, strengthening go-to-market execution, and enabling successful entry
-									into the UAE, Saudi Arabia, and GCC—supported by deep operational expertise and a
-									global life-sciences network.</p>
+								<p style="color:rgba(255, 255, 255, 0.9)">
+									Senior-led support across performance optimization, UAE/KSA market entry/access, and
+									commercial execution.
+								</p>
 							</div>
 						</div>
 						<div class="elementor-element elementor-element-465fec2a e-con-full e-flex e-con e-child"
@@ -757,9 +831,21 @@
 								data-widget_type="jkit_button.default">
 								<div
 									class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795_1_6942396d92d9d">
-									<a href="#?storefront=envato-elements" class="jkit-button-wrapper"
-										style="color: white;">Book a
-										Consultation
+									<a href="https://wa.me/+971545119500" target="_blank" class="jkit-button-wrapper"
+										style="color: white;">Connect
+										now
+										<i class="fa-solid fa-phone" style="width: 40px;"></i>
+									</a>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-39bc705 elementor-widget elementor-widget-jkit_button animated slideInLeft"
+								data-id="39bc705" data-element_type="widget"
+								data-settings="{&quot;_animation&quot;:&quot;slideInLeft&quot;}"
+								data-widget_type="jkit_button.default">
+								<div
+									class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795_1_6942396d92d9d">
+									<a href="contact.html" class="jkit-button-wrapper" style="color: white;">Get in
+										touch
 										<i class="fa-solid fa-arrow-right" style="width: 40px; rotate: -45deg;"></i></a>
 								</div>
 							</div>
@@ -961,17 +1047,19 @@
 				</div>
 			</div> -->
 		</div>
+
+
 		<div class="elementor-element elementor-element-70706585 e-flex e-con-boxed e-con e-parent e-lazyloaded"
-			data-id="70706585" data-element_type="container">
-			<div class="e-con-inner" style="align-items: center;">
-				<div class="elementor-element elementor-element-6ad8baeb e-con-full e-flex e-con e-child"
+			data-id="70706585" data-element_type="container" style="background-color: black;">
+			<div class="e-con-inner" style="align-items: center; padding-bottom: 0;">
+				<!-- <div class="elementor-element elementor-element-6ad8baeb e-con-full e-flex e-con e-child"
 					data-id="6ad8baeb" data-element_type="container">
 					<div class="elementor-element elementor-element-4786b58b e-con-full e-flex e-con e-child"
 						data-id="4786b58b" data-element_type="container"
 						data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 
 					</div>
-					<!-- <div class="elementor-element elementor-element-34c9009d e-con-full e-flex e-con e-child"
+					<div class="elementor-element elementor-element-34c9009d e-con-full e-flex e-con e-child"
 						data-id="34c9009d" data-element_type="container">
 						<div class="elementor-element elementor-element-15f15fae e-con-full e-flex e-con e-child animated fadeInLeft"
 							data-id="15f15fae" data-element_type="container"
@@ -983,28 +1071,30 @@
 									title="analysis" alt="analysis" loading="lazy">
 							</div>
 						</div>
-					</div> -->
-				</div>
+					</div>
+				</div> -->
 				<div class="elementor-element elementor-element-382bad29 e-con-full e-flex e-con e-child"
-					data-id="382bad29" data-element_type="container">
+					data-id="382bad29" data-element_type="container" style="width: 100%;">
 					<div class="elementor-element elementor-element-21abbaba elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
 						data-id="21abbaba" data-element_type="widget" data-widget_type="icon-list.default">
 						<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
 								<span class="elementor-icon-list-icon">
 									<i aria-hidden="true" class="fa-solid fa-hand-point-right"></i> </span>
-								<span class="elementor-icon-list-text">ABOUT US</span>
+								<span class="elementor-icon-list-text" style="color:rgba(255,255,255,0.7)">About
+									us</span>
 							</li>
 						</ul>
 					</div>
 					<div class="elementor-element elementor-element-11486a09 elementor-widget elementor-widget-heading"
 						data-id="11486a09" data-element_type="widget" data-widget_type="heading.default">
-						<h2 class="elementor-heading-title elementor-size-default">Strategic Growth, Market Access &
+						<h2 class="elementor-heading-title elementor-size-default" style="color:white">Strategic Growth,
+							Market Access &
 							Clinical Supply Expertise</h2>
 					</div>
 					<div class="elementor-element elementor-element-61859cac elementor-widget elementor-widget-text-editor"
 						data-id="61859cac" data-element_type="widget" data-widget_type="text-editor.default">
-						<p>
+						<p style="color:rgba(255, 255, 255, 0.9)">
 							We empower businesses with proven strategy, innovation, and deep industry experience to
 							drive performance improvement and sustainable growth. Working closely with leadership teams,
 							we identify gaps, remove bottlenecks, and optimize decision-making, resource utilization,
@@ -1014,7 +1104,7 @@
 					</div>
 					<div class="elementor-element elementor-element-61859cac elementor-widget elementor-widget-text-editor"
 						data-id="61859cac" data-element_type="widget" data-widget_type="text-editor.default">
-						<p>
+						<p style="color:rgba(255, 255, 255, 0.9)">
 							Our capabilities span business development and sales enablement, market entry and expansion
 							across the UAE, Saudi Arabia, and the wider GCC, and specialized advisory in clinical trial
 							supply chains. From strengthening go-to-market execution and account growth to supporting
@@ -1132,9 +1222,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="elementor-element elementor-element-5797d67d e-flex e-con-boxed e-con e-parent e-lazyloaded"
-			data-id="5797d67d" data-element_type="container">
-			<div class="e-con-inner" style="padding-top: 0;">
+		<div class="elementor-element elementor-element-5797d67d e-flex e-con-boxed e-con e-parent e-lazyloaded"
+			data-id="5797d67d" data-element_type="container" style="background-color: black;">
+			<div class="e-con-inner">
 				<div class="elementor-element elementor-element-53713919 e-con-full e-flex e-con e-child"
 					data-id="53713919" data-element_type="container">
 					<div class="elementor-element elementor-element-437fddb1 e-con-full e-flex e-con e-child"
@@ -1145,16 +1235,18 @@
 								<li class="elementor-icon-list-item">
 									<span class="elementor-icon-list-icon">
 										<i aria-hidden="true" class="fa-solid fa-hand-point-right"></i> </span>
-									<span class="elementor-icon-list-text">What We Do</span>
+									<span class="elementor-icon-list-text" style="color:rgba(255,255,255,0.7)">What We
+										Do</span>
 								</li>
 							</ul>
 						</div>
 						<div class="elementor-element elementor-element-3f6d4633 elementor-widget elementor-widget-heading"
 							data-id="3f6d4633" data-element_type="widget" data-widget_type="heading.default">
-							<h2 class="elementor-heading-title elementor-size-default">Solutions for Your Success</h2>
+							<h2 class="elementor-heading-title elementor-size-default" style="color:white">Solutions for
+								Your Success</h2>
 						</div>
 					</div>
-					<div class="elementor-element elementor-element-bd4a660 e-con-full e-flex e-con e-child"
+					<!-- <div class="elementor-element elementor-element-bd4a660 e-con-full e-flex e-con e-child"
 						data-id="bd4a660" data-element_type="container">
 						<div class="elementor-element elementor-element-46c24ade e-con-full e-flex e-con e-child"
 							data-id="46c24ade" data-element_type="container">
@@ -1168,18 +1260,21 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="elementor-element elementor-element-236f4f39 e-grid e-con-full e-con e-child"
 					data-id="236f4f39" data-element_type="container">
-					<div class="elementor-element elementor-element-8ef8b21 e-con-full e-flex e-con e-child animated fadeIn"
-						style="justify-content: space-between;" data-id="8ef8b21" data-element_type="container"
+
+					<a href="./market-entry.html"
+						class="elementor-element elementor-element-8ef8b21 e-con-full e-flex e-con e-child animated fadeIn"
+						style="justify-content: space-between; background-color: rgba(255, 255, 255, 0.1);"
+						data-id="8ef8b21" data-element_type="container"
 						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;}">
 						<div class="elementor-element elementor-element-bb4f187 e-con-full e-flex e-con e-child"
 							data-id="bb4f187" data-element_type="container">
 							<div class="elementor-element elementor-element-26b53f4d elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
 								data-id="26b53f4d" data-element_type="widget" data-widget_type="icon-box.default">
-								<div class="elementor-icon-box-wrapper">
+								<div class="elementor-icon-box-wrapper" style="align-items: start;">
 
 									<div class="elementor-icon-box-icon">
 										<span class="elementor-icon">
@@ -1187,121 +1282,120 @@
 									</div>
 
 									<div class="elementor-icon-box-content">
-
-										<h3 class="elementor-icon-box-title">
-											<span>
-												Performance Optimization & Cost Reduction </span>
+										<h3 class="elementor-icon-box-title"
+											style="margin: 0; margin-bottom: 6px; color: white;">
+											Market Entry into UAE , Saudi Arabia and GCC
 										</h3>
-
-
+										<p
+											style="color: rgba(0, 0, 0, 0.7); font-size: 14px; color: rgba(255, 255, 255, 0.8);">
+											Entry strategy,
+											partner/distributor identification, and execution support to
+											establish and grow your presence.</p>
 									</div>
 
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-1b6334ba elementor-widget elementor-widget-image"
-							data-id="1b6334ba" data-element_type="widget" data-widget_type="image.default">
-							<img decoding="async"
-								src="./index_files/service4-rcbqcgbds7mvufy66x3koxf2e2pffomk9412cllbjg.webp"
-								title="service4" alt="service4" loading="lazy">
-						</div>
-						<div class="elementor-element elementor-element-46614e93 elementor-widget elementor-widget-jkit_button"
-							data-id="46614e93" data-element_type="widget" data-widget_type="jkit_button.default">
-							<div
-								class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795_6_6942396d964a3">
-								<a href="#?storefront=envato-elements" class="jkit-button-wrapper">Read More<i
-										aria-hidden="true" class="fa-solid fa-chevron-right"
-										style="width: 40px;"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-7e26d4f8 e-con-full e-flex e-con e-child animated fadeIn"
-						style="justify-content: space-between;" data-id="7e26d4f8" data-element_type="container"
-						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;animation_delay&quot;:200}">
-						<div class="elementor-element elementor-element-60ada9d4 e-con-full e-flex e-con e-child"
-							data-id="60ada9d4" data-element_type="container">
-							<div class="elementor-element elementor-element-32c1f724 elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
-								data-id="32c1f724" data-element_type="widget" data-widget_type="icon-box.default">
-								<div class="elementor-icon-box-wrapper">
+					</a>
+					<a href="./business-development.html"
+						class="elementor-element elementor-element-8ef8b21 e-con-full e-flex e-con e-child animated fadeIn"
+						style="justify-content: space-between; background-color: rgba(255, 255, 255, 0.1);"
+						data-id="8ef8b21" data-element_type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;}">
+						<div class="elementor-element elementor-element-bb4f187 e-con-full e-flex e-con e-child"
+							data-id="bb4f187" data-element_type="container">
+							<div class="elementor-element elementor-element-26b53f4d elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
+								data-id="26b53f4d" data-element_type="widget" data-widget_type="icon-box.default">
+								<div class="elementor-icon-box-wrapper" style="align-items: start;">
 
 									<div class="elementor-icon-box-icon">
 										<span class="elementor-icon">
-											<i aria-hidden="true" class="fa-solid fa-chart-column"></i> </span>
+											<i class="fa-solid fa-arrow-up-right-dots"></i> </span>
 									</div>
 
 									<div class="elementor-icon-box-content">
-
-										<h3 class="elementor-icon-box-title">
-											<span>
-												Business Development & Sales Enablement </span>
+										<h3 class="elementor-icon-box-title"
+											style="margin: 0; margin-bottom: 6px; color: white;">
+											Business Development & Sales Excellence
 										</h3>
-
-
+										<p
+											style="color: rgba(0, 0, 0, 0.7); font-size: 14px; color: rgba(255, 255, 255, 0.8);">
+											Practical go-to-market support and sales enablement that converts activity
+											into pipeline and revenue.
+										</p>
 									</div>
 
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-3ca6d2bf elementor-widget elementor-widget-image"
-							data-id="3ca6d2bf" data-element_type="widget" data-widget_type="image.default">
-							<img decoding="async"
-								src="./index_files/service3-rcbqcfdjldllitzjceoy4fnlsou27zitwzdkvbmppo.webp"
-								title="service3" alt="service3" loading="lazy">
-						</div>
-						<div class="elementor-element elementor-element-635b7ba0 elementor-widget elementor-widget-jkit_button"
-							data-id="635b7ba0" data-element_type="widget" data-widget_type="jkit_button.default">
-							<div
-								class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795_7_6942396d969b5">
-								<a href="#?storefront=envato-elements" class="jkit-button-wrapper">Read More<i
-										aria-hidden="true" class="fa-solid fa-chevron-right"
-										style="width: 40px;"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-1e82bc42 e-con-full e-flex e-con e-child animated fadeIn"
-						style="justify-content: space-between;" data-id="1e82bc42" data-element_type="container"
-						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;animation_delay&quot;:400}">
-						<div class="elementor-element elementor-element-3fb8be3b e-con-full e-flex e-con e-child"
-							data-id="3fb8be3b" data-element_type="container">
-							<div class="elementor-element elementor-element-1514312d elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
-								data-id="1514312d" data-element_type="widget" data-widget_type="icon-box.default">
-								<div class="elementor-icon-box-wrapper">
+					</a>
+					<a href="./performance-optimization.html"
+						class="elementor-element elementor-element-8ef8b21 e-con-full e-flex e-con e-child animated fadeIn"
+						style="justify-content: space-between; background-color: rgba(255, 255, 255, 0.1);"
+						data-id="8ef8b21" data-element_type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;}">
+						<div class="elementor-element elementor-element-bb4f187 e-con-full e-flex e-con e-child"
+							data-id="bb4f187" data-element_type="container">
+							<div class="elementor-element elementor-element-26b53f4d elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
+								data-id="26b53f4d" data-element_type="widget" data-widget_type="icon-box.default">
+								<div class="elementor-icon-box-wrapper" style="align-items: start;">
 
 									<div class="elementor-icon-box-icon">
 										<span class="elementor-icon">
-											<i aria-hidden="true" class="fa-solid fa-bullhorn"></i> </span>
+											<i class="fa-solid fa-chart-column"></i> </span>
 									</div>
 
 									<div class="elementor-icon-box-content">
-
-										<h3 class="elementor-icon-box-title">
-											<span>
-												Market Entry & Expansion into UAE, Saudi Arabia, and the GCC </span>
+										<h3 class="elementor-icon-box-title"
+											style="margin: 0; margin-bottom: 6px; color: white;">
+											Performance Optimization & Execution
 										</h3>
-
-
+										<p
+											style="color: rgba(0, 0, 0, 0.7); font-size: 14px; color: rgba(255, 255, 255, 0.8);">
+											Operational and commercial diagnostics to remove bottlenecks, reduce waste,
+											and improve productivity and profitability.
+										</p>
 									</div>
 
 								</div>
 							</div>
 						</div>
-						<div class="elementor-element elementor-element-3eb5a8d8 elementor-widget elementor-widget-image"
-							data-id="3eb5a8d8" data-element_type="widget" data-widget_type="image.default">
-							<img decoding="async"
-								src="./index_files/service2-rcbqch97z1o661wt1fi79f6izgksndqal8ojtvjxd8.webp"
-								title="service2" alt="service2" loading="lazy">
-						</div>
-						<div class="elementor-element elementor-element-cd0db43 elementor-widget elementor-widget-jkit_button"
-							data-id="cd0db43" data-element_type="widget" data-widget_type="jkit_button.default">
-							<div
-								class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795_8_6942396d96ec1">
-								<a href="#?storefront=envato-elements" class="jkit-button-wrapper">Read More<i
-										aria-hidden="true" class="fa-solid fa-chevron-right"
-										style="width: 40px;"></i></a>
+					</a>
+					<a href="./comparator-strategy.html"
+						class="elementor-element elementor-element-8ef8b21 e-con-full e-flex e-con e-child animated fadeIn"
+						style="justify-content: space-between; background-color: rgba(255, 255, 255, 0.1);"
+						data-id="8ef8b21" data-element_type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;}">
+						<div class="elementor-element elementor-element-bb4f187 e-con-full e-flex e-con e-child"
+							data-id="bb4f187" data-element_type="container">
+							<div class="elementor-element elementor-element-26b53f4d elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
+								data-id="26b53f4d" data-element_type="widget" data-widget_type="icon-box.default">
+								<div class="elementor-icon-box-wrapper" style="align-items: start;">
+
+									<div class="elementor-icon-box-icon">
+										<span class="elementor-icon">
+											<i class="fa-solid fa-heart-pulse"></i> </span>
+									</div>
+
+									<div class="elementor-icon-box-content">
+										<h3 class="elementor-icon-box-title"
+											style="margin: 0; margin-bottom: 6px; color: white;">
+											Clinical Trials Supply Management
+										</h3>
+										<p
+											style="color: rgba(0, 0, 0, 0.7); font-size: 14px; color: rgba(255, 255, 255, 0.8);">
+											We offer commercial and partnering advisory for life sciences, covering
+											feasibility, vendor due diligence, and clinical trial supply support as
+											needed, with a strong focus on comparator sourcing and risk mitigation.
+										</p>
+									</div>
+
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="elementor-element elementor-element-1e82bc42 e-con-full e-flex e-con e-child animated fadeIn"
+					</a>
+
+					<!-- <div class="elementor-element elementor-element-1e82bc42 e-con-full e-flex e-con e-child animated fadeIn"
 						style="justify-content: space-between;" data-id="1e82bc42" data-element_type="container"
 						data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;animation_delay&quot;:400}">
 						<div class="elementor-element elementor-element-3fb8be3b e-con-full e-flex e-con e-child"
@@ -1343,17 +1437,17 @@
 										style="width: 40px;"></i></a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
-		</div> -->
-		<div style="text-align: center;">
-			<img src="./assets/home-stats-1.png" style="max-width: 1080px; width: 100%; padding-bottom: 80px;" alt="">
+		</div>
+		<div style="text-align: center; background-color: black; padding-bottom: 80px;">
+			<img src="./assets/services-img.jpeg" style="max-width: 1080px; width: 100%;" alt="">
 		</div>
 
 		<div class="elementor-element elementor-element-48a2d745 e-flex e-con-boxed e-con e-parent e-lazyloaded"
 			data-id="48a2d745" data-element_type="container"
-			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: black;">
 			<div class="e-con-inner">
 				<div class="elementor-element elementor-element-5217d033 e-con-full e-flex e-con e-child animated fadeIn"
 					data-id="5217d033" data-element_type="container"
@@ -1398,6 +1492,7 @@
 										<div class="elementskit-card-header" id="primaryHeading-0-2430f5fe">
 											<a href="#collapse-eadf71e6940e9a0ce146"
 												class="ekit-accordion--toggler elementskit-btn-link collapsed"
+												style="background-color: #1a1a1a; color: white;"
 												data-ekit-toggle="collapse" data-target="#Collapse-eadf71e6940e9a0ce146"
 												aria-expanded="true" aria-controls="Collapse-eadf71e6940e9a0ce146">
 
@@ -1426,8 +1521,9 @@
 											aria-labelledby="primaryHeading-0-2430f5fe"
 											data-parent="#accordion-6940e9a0ce146">
 
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>
+											<div class="elementskit-card-body ekit-accordion--content"
+												style="background-color: #1a1a1a; color: white;">
+												<p style="color: white;">
 													We work with leadership teams in mid-sized to large organizations,
 													investors, and growing international companies. Our clients span
 													multiple sectors, with a strong focus on businesses seeking
@@ -1445,6 +1541,7 @@
 										<div class="elementskit-card-header" id="primaryHeading-1-2430f5fe">
 											<a href="#collapse-0881fae6940e9a0ce146"
 												class="ekit-accordion--toggler elementskit-btn-link collapsed"
+												style="background-color: #1a1a1a; color: white;"
 												data-ekit-toggle="collapse" data-target="#Collapse-0881fae6940e9a0ce146"
 												aria-expanded="false" aria-controls="Collapse-0881fae6940e9a0ce146">
 
@@ -1472,8 +1569,10 @@
 											aria-labelledby="primaryHeading-1-2430f5fe"
 											data-parent="#accordion-6940e9a0ce146">
 
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>We do both. Strategy without execution is wasted effort. Our work is
+											<div class="elementskit-card-body ekit-accordion--content"
+												style="background-color: #1a1a1a; color: white;">
+												<p style="color: white;">We do both. Strategy without execution is
+													wasted effort. Our work is
 													designed to be implemented, and we provide hands-on support through
 													delivery, governance, KPI tracking, and capability building to
 													ensure results are achieved and sustained.</p>
@@ -1488,6 +1587,7 @@
 										<div class="elementskit-card-header" id="primaryHeading-2-2430f5fe">
 											<a href="#collapse-8c177256940e9a0ce146"
 												class="ekit-accordion--toggler elementskit-btn-link collapsed"
+												style="background-color: #1a1a1a; color: white;"
 												data-ekit-toggle="collapse" data-target="#Collapse-8c177256940e9a0ce146"
 												aria-expanded="false" aria-controls="Collapse-8c177256940e9a0ce146">
 
@@ -1515,8 +1615,10 @@
 											aria-labelledby="primaryHeading-2-2430f5fe"
 											data-parent="#accordion-6940e9a0ce146">
 
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>We provide practical, on-the-ground advisory covering market
+											<div class="elementskit-card-body ekit-accordion--content"
+												style="background-color: #1a1a1a; color: white;">
+												<p style="color: white;">We provide practical, on-the-ground advisory
+													covering market
 													intelligence, partner identification, go-to-market design, and
 													launch planning. We act as a local advisor and execution partner,
 													coordinating with licensed legal, tax, and professional service
@@ -1533,6 +1635,7 @@
 										<div class="elementskit-card-header" id="primaryHeading-3-2430f5fe">
 											<a href="#collapse-f9fa7366940e9a0ce146"
 												class="ekit-accordion--toggler elementskit-btn-link collapsed"
+												style="background-color: #1a1a1a; color: white;"
 												data-ekit-toggle="collapse" data-target="#Collapse-f9fa7366940e9a0ce146"
 												aria-expanded="false" aria-controls="Collapse-f9fa7366940e9a0ce146">
 
@@ -1561,8 +1664,9 @@
 											aria-labelledby="primaryHeading-3-2430f5fe"
 											data-parent="#accordion-6940e9a0ce146">
 
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>
+											<div class="elementskit-card-body ekit-accordion--content"
+												style="background-color: #1a1a1a; color: white;">
+												<p style="color: white;">
 													We advise pharma and biotech teams on comparator sourcing strategy,
 													vendor selection, supply-chain optimization, and risk mitigation. We
 													leverage a global life-sciences network while working through
@@ -1579,6 +1683,7 @@
 									<div class="elementskit-card ">
 										<div class="elementskit-card-header" id="primaryHeading-4-2430f5fe">
 											<a href="#collapse-6602b246940e9a0ce146"
+												style="background-color: #1a1a1a; color: white;"
 												class="ekit-accordion--toggler elementskit-btn-link collapsed"
 												data-ekit-toggle="collapse" data-target="#Collapse-6602b246940e9a0ce146"
 												aria-expanded="false" aria-controls="Collapse-6602b246940e9a0ce146">
@@ -1608,8 +1713,9 @@
 											aria-labelledby="primaryHeading-4-2430f5fe"
 											data-parent="#accordion-6940e9a0ce146">
 
-											<div class="elementskit-card-body ekit-accordion--content">
-												<p>
+											<div class="elementskit-card-body ekit-accordion--content"
+												style="background-color: #1a1a1a; color: white;">
+												<p style="color: white;">
 													Engagements typically follow a structured approach: assess, design,
 													implement, and sustain. Success is measured through clear KPIs,
 													performance cadence, and agreed outcomes—such as cost reduction,
@@ -1629,6 +1735,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- <div class="elementor-element elementor-element-46d52e8a e-flex e-con-boxed e-con e-parent e-lazyloaded"
 			data-id="46d52e8a" data-element_type="container"
 			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -1940,12 +2047,12 @@
 
 		<div class="elementor-element elementor-element-36a2612a e-flex e-con-boxed e-con e-parent e-lazyloaded"
 			data-id="36a2612a" data-element_type="container"
-			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: black;">
 			<div class="e-con-inner" style="padding-bottom: 280px;">
-				<div class="elementor-element elementor-element-5be5164e e-con-full e-flex e-con e-child"
+				<!-- <div class="elementor-element elementor-element-5be5164e e-con-full e-flex e-con e-child"
 					data-id="5be5164e" data-element_type="container"
 					data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<!-- <div class="elementor-element elementor-element-13feaf61 elementor-absolute elementor-hidden-mobile elementor-view-default elementor-widget elementor-widget-icon"
+					<div class="elementor-element elementor-element-13feaf61 elementor-absolute elementor-hidden-mobile elementor-view-default elementor-widget elementor-widget-icon"
 						data-id="13feaf61" data-element_type="widget"
 						data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="icon.default">
 						<div class="elementor-icon-wrapper">
@@ -1953,10 +2060,10 @@
 								<i aria-hidden="true" class="jki jki-pie-chart-line"></i>
 							</div>
 						</div>
-					</div> -->
-				</div>
+					</div>
+				</div> -->
 				<div class="elementor-element elementor-element-60ed7361 e-con-full e-flex e-con e-child"
-					data-id="60ed7361" data-element_type="container">
+					data-id="60ed7361" data-element_type="container" style="width: 100%;">
 					<div class="elementor-element elementor-element-55b4fbb9 e-con-full e-flex e-con e-child"
 						data-id="55b4fbb9" data-element_type="container">
 						<div class="elementor-element elementor-element-1e91e1e7 e-con-full e-flex e-con e-child"
@@ -1967,18 +2074,21 @@
 									<li class="elementor-icon-list-item">
 										<span class="elementor-icon-list-icon">
 											<i aria-hidden="true" class="fa-solid fa-hand-point-right"></i> </span>
-										<span class="elementor-icon-list-text">Why Choose Us</span>
+										<span class="elementor-icon-list-text" style="color:rgba(255,255,255,0.7)">Why
+											Choose Us</span>
 									</li>
 								</ul>
 							</div>
 							<div class="elementor-element elementor-element-16226df4 elementor-widget elementor-widget-heading"
 								data-id="16226df4" data-element_type="widget" data-widget_type="heading.default">
-								<h2 class="elementor-heading-title elementor-size-default">Why Pathway Strategy Partners
+								<h2 class="elementor-heading-title elementor-size-default" style="color:white">Why
+									Pathway Strategy Partners
 								</h2>
 							</div>
 							<div class="elementor-element elementor-element-599a61c7 elementor-widget elementor-widget-text-editor"
 								data-id="599a61c7" data-element_type="widget" data-widget_type="text-editor.default">
-								<p>We partner with leadership teams to deliver strategies that translate into real
+								<p style="color:rgba(255,255,255,0.7)">We partner with leadership teams to deliver
+									strategies that translate into real
 									business results. Our work is grounded in execution, shaped by on-the-ground market
 									realities, and driven by measurable impact—not theory or presentation decks.</p>
 							</div>
@@ -1989,9 +2099,9 @@
 								data-id="4fb12a9b" data-element_type="widget" data-widget_type="jkit_button.default">
 								<div
 									class="jeg-elementor-kit jkit-button  icon-position-after jeg_module_4795_9_6942396d9770c">
-									<a href="#?storefront=envato-elements" class="jkit-button-wrapper"
-										style="color: white;">Contact Us<i aria-hidden="true"
-											class="fa-solid fa-chevron-right" style="width: 40px;"></i></a>
+									<a href="contact.html" class="jkit-button-wrapper" style="color: white;">Contact
+										Us<i aria-hidden="true" class="fa-solid fa-chevron-right"
+											style="width: 40px;"></i></a>
 								</div>
 							</div>
 							<!-- <div class="elementor-element elementor-element-4d3e35d0 elementor-absolute elementor-view-default elementor-widget elementor-widget-icon"
@@ -2007,10 +2117,11 @@
 						</div>
 					</div>
 					<div class="elementor-element elementor-element-33b5ce96 e-grid e-con-full e-con e-child"
-						data-id="33b5ce96" data-element_type="container">
+						data-id="33b5ce96" data-element_type="container" style="width: 100%; margin-left: 0;">
 						<div class="elementor-element elementor-element-1d2bb9b7 e-con-full e-flex e-con e-child animated slideInRight"
 							data-id="1d2bb9b7" data-element_type="container"
-							data-settings="{&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+							data-settings="{&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;background_background&quot;:&quot;classic&quot;}"
+							style="background-color: #1a1a1a;">
 							<div class="elementor-element elementor-element-63c24715 elementor-view-stacked elementor-position-right elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
 								data-id="63c24715" data-element_type="widget" data-widget_type="icon-box.default">
 								<div class="elementor-icon-box-wrapper">
@@ -2023,12 +2134,12 @@
 
 									<div class="elementor-icon-box-content">
 
-										<h3 class="elementor-icon-box-title">
+										<h3 class="elementor-icon-box-title" style="color: white;">
 											<span>
 												Results orientation </span>
 										</h3>
 
-										<p class="elementor-icon-box-description">
+										<p class="elementor-icon-box-description" style="color: rgba(255,255,255,0.7);">
 											We focus on measurable outcomes, not slides for their own sake.</p>
 
 									</div>
@@ -2038,7 +2149,8 @@
 						</div>
 						<div class="elementor-element elementor-element-77a7a05d e-con-full e-flex e-con e-child animated slideInRight"
 							data-id="77a7a05d" data-element_type="container"
-							data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;animation_delay&quot;:200}">
+							data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;animation_delay&quot;:200}"
+							style="background-color: #1a1a1a;">
 							<div class="elementor-element elementor-element-732c4618 elementor-view-stacked elementor-position-right elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
 								data-id="732c4618" data-element_type="widget" data-widget_type="icon-box.default">
 								<div class="elementor-icon-box-wrapper">
@@ -2051,12 +2163,12 @@
 
 									<div class="elementor-icon-box-content">
 
-										<h3 class="elementor-icon-box-title">
+										<h3 class="elementor-icon-box-title" style="color: white;">
 											<span>
 												Real-world execution </span>
 										</h3>
 
-										<p class="elementor-icon-box-description">
+										<p class="elementor-icon-box-description" style="color: rgba(255,255,255,0.7);">
 											Strategy is designed to be implemented—aligned with capability, resources,
 											and market constraints.
 										</p>
@@ -2068,7 +2180,8 @@
 						</div>
 						<div class="elementor-element elementor-element-3aa533f1 e-con-full e-flex e-con e-child animated slideInRight"
 							data-id="3aa533f1" data-element_type="container"
-							data-settings="{&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;animation_delay&quot;:400}">
+							data-settings="{&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;animation_delay&quot;:400}"
+							style="background-color: #1a1a1a;">
 							<div class="elementor-element elementor-element-57387bb3 elementor-view-stacked elementor-position-right elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
 								data-id="57387bb3" data-element_type="widget" data-widget_type="icon-box.default">
 								<div class="elementor-icon-box-wrapper">
@@ -2080,12 +2193,12 @@
 
 									<div class="elementor-icon-box-content">
 
-										<h3 class="elementor-icon-box-title">
+										<h3 class="elementor-icon-box-title" style="color: white;">
 											<span>
 												Cross-border perspective </span>
 										</h3>
 
-										<p class="elementor-icon-box-description">
+										<p class="elementor-icon-box-description" style="color: rgba(255,255,255,0.7);">
 											We bridge international expectations with Gulf-market realities.</p>
 
 									</div>
@@ -2095,7 +2208,8 @@
 						</div>
 						<div class="elementor-element elementor-element-3aa533f1 e-con-full e-flex e-con e-child animated slideInRight"
 							data-id="3aa533f1" data-element_type="container"
-							data-settings="{&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;animation_delay&quot;:400}">
+							data-settings="{&quot;animation&quot;:&quot;slideInRight&quot;,&quot;animation_tablet&quot;:&quot;none&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;animation_delay&quot;:400}"
+							style="background-color: #1a1a1a;">
 							<div class="elementor-element elementor-element-57387bb3 elementor-view-stacked elementor-position-right elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
 								data-id="57387bb3" data-element_type="widget" data-widget_type="icon-box.default">
 								<div class="elementor-icon-box-wrapper">
@@ -2107,12 +2221,12 @@
 
 									<div class="elementor-icon-box-content">
 
-										<h3 class="elementor-icon-box-title">
+										<h3 class="elementor-icon-box-title" style="color: white;">
 											<span>
 												Network leverage </span>
 										</h3>
 
-										<p class="elementor-icon-box-description">
+										<p class="elementor-icon-box-description" style="color: rgba(255,255,255,0.7);">
 											Deep relationships across business, operations, and life-sciences supply
 											chains. </p>
 
@@ -2129,7 +2243,7 @@
 	<footer class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support">
 		<div data-elementor-type="wp-post" data-elementor-id="192" class="elementor elementor-192">
 			<div class="elementor-element elementor-element-f96273c e-flex e-con-boxed e-con e-parent e-lazyloaded"
-				data-id="f96273c" data-element_type="container"
+				style="background-color: #1a1a1a;" data-id="f96273c" data-element_type="container"
 				data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 				<div class="e-con-inner">
 					<div class="elementor-element elementor-element-289d702 e-con-full e-flex e-con e-child animated slideInUp"
@@ -2141,11 +2255,6 @@
 								data-id="23c38e4" data-element_type="widget" data-widget_type="heading.default">
 								<h3 class="elementor-heading-title elementor-size-default">Grow Smarter With Our
 									Newsletter</h3>
-							</div>
-							<div class="elementor-element elementor-element-2d96eef elementor-widget elementor-widget-text-editor"
-								data-id="2d96eef" data-element_type="widget" data-widget_type="text-editor.default">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-									ullamcorper mattis</p>
 							</div>
 						</div>
 						<div class="elementor-element elementor-element-e4e3588 e-con-full e-flex e-con e-child"
@@ -2171,12 +2280,13 @@
 										<div class="mf-widget-container">
 
 											<div id="metform-wrap-39399c9-256" class="mf-form-wrapper"
-												data-form-id="256"
-												data-action="https://biznova.themewolfs.com/wp-json/metform/v1/entries/insert/256"
-												data-wp-nonce="f5e7f19dd8" data-form-nonce="fb88a60966"
-												data-quiz-summery="false" data-save-progress="false"
-												data-form-type="general-form" data-stop-vertical-effect="">
-												<form class="metform-form-content">
+												data-form-id="256" data-wp-nonce="f5e7f19dd8"
+												data-form-nonce="fb88a60966" data-quiz-summery="false"
+												data-save-progress="false" data-form-type="general-form"
+												data-stop-vertical-effect="">
+												<form class="metform-form-content"
+													action="https://script.google.com/macros/s/AKfycbwmNcCb9px7iiZi4TZMBYXfboGkXfktxdt8TIM6ZzN41Irqn1HptQQb_M-K2HU1Y10R/exec"
+													method="POST" target="_blank">
 													<div class="mf-main-response-wrap   mf-response-msg-wrap"
 														data-show="0">
 														<div class="mf-response-msg"><i
@@ -2196,8 +2306,8 @@
 																		data-widget_type="mf-email.default">
 																		<div class="mf-input-wrapper"><input
 																				type="email" class="mf-input "
-																				id="mf-input-email-9b9b561"
-																				name="mf-email" placeholder="Email "
+																				id="mf-input-email-9b9b561" name="email"
+																				placeholder="Email "
 																				aria-invalid="false" value=""></div>
 																	</div>
 																	<div class="elementor-element elementor-element-e1e8876 mf-btn--justify elementor-widget__width-initial mf-btn--mobile-justify elementor-widget elementor-widget-mf-button"
@@ -2216,16 +2326,6 @@
 													</div>
 												</form>
 											</div>
-
-
-											<!----------------------------- 
-			* controls_data : find the the props passed indie of data attribute
-			* props.SubmitResponseMarkup : contains the markup of error or success message
-			* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-		--------------------------- -->
-
-
-
 										</div>
 									</div>
 								</div>
@@ -2238,13 +2338,12 @@
 							data-id="bf2dc96" data-element_type="container">
 							<div class="elementor-element elementor-element-8880f54 elementor-widget elementor-widget-image"
 								data-id="8880f54" data-element_type="widget" data-widget_type="image.default">
-								<img width="286" height="45" src="./assets/logo2.png"
+								<img width="286" height="45" src="./assets/logo-new.png"
 									class="attachment-large size-large wp-image-4386" alt="" decoding="async">
-								<p style="font-style: italic;">GLOBAL VISION LOCAL PRECISION</p>
 							</div>
 							<div class="elementor-element elementor-element-0869fa0 elementor-widget elementor-widget-text-editor"
 								data-id="0869fa0" data-element_type="widget" data-widget_type="text-editor.default">
-								<p>
+								<p style="color: white;">
 									Pathway Strategy Partners helps organizations improve performance, strengthen
 									commercial execution, and succeed in the UAE, Saudi Arabia, and the GCC.
 								</p>
@@ -2253,7 +2352,8 @@
 								data-id="201d9ce" data-element_type="widget" data-widget_type="social-icons.default">
 								<div class="elementor-social-icons-wrapper elementor-grid" role="list">
 									<span class="elementor-grid-item" role="listitem">
-										<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-124b08b"
+										<a href="https://www.facebook.com/pathwaystrategypartners"
+											class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-124b08b"
 											target="_blank">
 											<span class="elementor-screen-only">Facebook-f</span>
 											<svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook-f"
@@ -2264,18 +2364,24 @@
 											</svg> </a>
 									</span>
 									<span class="elementor-grid-item" role="listitem">
-										<a class="elementor-icon elementor-social-icon elementor-social-icon-x-twitter elementor-repeater-item-ed47a94"
+										<a href="https://www.youtube.com/@pathwaystrategypartners"
+											class="elementor-icon elementor-social-icon elementor-social-icon-x-twitter elementor-repeater-item-ed47a94"
 											target="_blank">
-											<span class="elementor-screen-only">X-twitter</span>
-											<svg aria-hidden="true" class="e-font-icon-svg e-fab-x-twitter"
-												viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-												<path
-													d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
-												</path>
+											<span class="elementor-screen-only">Youtube</span>
+											<svg xmlns:xlink="http://www.w3.org/1999/xlink"
+												xmlns="http://www.w3.org/2000/svg" width="800" height="800"
+												viewBox="0 0 24 24" fill="none">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M9.49614 7.13176C9.18664 6.9549 8.80639 6.95617 8.49807 7.13509C8.18976 7.31401 8 7.64353 8 8V16C8 16.3565 8.18976 16.686 8.49807 16.8649C8.80639 17.0438 9.18664 17.0451 9.49614 16.8682L16.4961 12.8682C16.8077 12.6902 17 12.3589 17 12C17 11.6411 16.8077 11.3098 16.4961 11.1318L9.49614 7.13176ZM13.9844 12L10 14.2768V9.72318L13.9844 12Z"
+													fill="#0F0F0F"></path>
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M0 12C0 8.25027 0 6.3754 0.954915 5.06107C1.26331 4.6366 1.6366 4.26331 2.06107 3.95491C3.3754 3 5.25027 3 9 3H15C18.7497 3 20.6246 3 21.9389 3.95491C22.3634 4.26331 22.7367 4.6366 23.0451 5.06107C24 6.3754 24 8.25027 24 12C24 15.7497 24 17.6246 23.0451 18.9389C22.7367 19.3634 22.3634 19.7367 21.9389 20.0451C20.6246 21 18.7497 21 15 21H9C5.25027 21 3.3754 21 2.06107 20.0451C1.6366 19.7367 1.26331 19.3634 0.954915 18.9389C0 17.6246 0 15.7497 0 12ZM9 5H15C16.9194 5 18.1983 5.00275 19.1673 5.10773C20.0989 5.20866 20.504 5.38448 20.7634 5.57295C21.018 5.75799 21.242 5.98196 21.4271 6.23664C21.6155 6.49605 21.7913 6.90113 21.8923 7.83269C21.9973 8.80167 22 10.0806 22 12C22 13.9194 21.9973 15.1983 21.8923 16.1673C21.7913 17.0989 21.6155 17.504 21.4271 17.7634C21.242 18.018 21.018 18.242 20.7634 18.4271C20.504 18.6155 20.0989 18.7913 19.1673 18.8923C18.1983 18.9973 16.9194 19 15 19H9C7.08058 19 5.80167 18.9973 4.83269 18.8923C3.90113 18.7913 3.49605 18.6155 3.23664 18.4271C2.98196 18.242 2.75799 18.018 2.57295 17.7634C2.38448 17.504 2.20866 17.0989 2.10773 16.1673C2.00275 15.1983 2 13.9194 2 12C2 10.0806 2.00275 8.80167 2.10773 7.83269C2.20866 6.90113 2.38448 6.49605 2.57295 6.23664C2.75799 5.98196 2.98196 5.75799 3.23664 5.57295C3.49605 5.38448 3.90113 5.20866 4.83269 5.10773C5.80167 5.00275 7.08058 5 9 5Z"
+													fill="#0F0F0F"></path>
 											</svg> </a>
 									</span>
 									<span class="elementor-grid-item" role="listitem">
-										<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-5a9e83d"
+										<a href="https://www.linkedin.com/company/pathway-strategy-partners"
+											class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-5a9e83d"
 											target="_blank">
 											<span class="elementor-screen-only">Linkedin-in</span>
 											<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin-in"
@@ -2286,7 +2392,8 @@
 											</svg> </a>
 									</span>
 									<span class="elementor-grid-item" role="listitem">
-										<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-0c821be"
+										<a href="https://www.instagram.com/pathwaystrategypartners"
+											class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-0c821be"
 											target="_blank">
 											<span class="elementor-screen-only">Instagram</span>
 											<svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram"
@@ -2303,29 +2410,34 @@
 							data-id="4fe7163" data-element_type="container">
 							<div class="elementor-element elementor-element-f3fb408 elementor-widget elementor-widget-heading"
 								data-id="f3fb408" data-element_type="widget" data-widget_type="heading.default">
-								<h2 class="elementor-heading-title elementor-size-default">Services</h2>
+								<h2 class="elementor-heading-title elementor-size-default" style="color: white;">
+									Services</h2>
 							</div>
 							<div class="elementor-element elementor-element-1491d71 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
 								data-id="1491d71" data-element_type="widget" data-widget_type="icon-list.default">
 								<ul class="elementor-icon-list-items">
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Performance Optimization</span>
+										<a href="./performance-optimization.html">
+											<span class="elementor-icon-list-text" style="color: white;">Performance
+												Optimization</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Business Development</span>
+										<a href="./business-development.html">
+											<span class="elementor-icon-list-text" style="color: white;">Business
+												Development</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Market Entry</span>
+										<a href="./market-entry.html">
+											<span class="elementor-icon-list-text" style="color: white;">Market
+												Entry</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Comparator Strategy</span>
+										<a href="./comparator-strategy.html">
+											<span class="elementor-icon-list-text" style="color: white;">Comparator Drug
+												Sourcing</span>
 										</a>
 									</li>
 								</ul>
@@ -2335,34 +2447,30 @@
 							data-id="ce2d00b" data-element_type="container">
 							<div class="elementor-element elementor-element-72aa260 elementor-widget elementor-widget-heading"
 								data-id="72aa260" data-element_type="widget" data-widget_type="heading.default">
-								<h2 class="elementor-heading-title elementor-size-default">Quick Links</h2>
+								<h2 class="elementor-heading-title elementor-size-default" style="color: white;">Quick
+									Links</h2>
 							</div>
 							<div class="elementor-element elementor-element-622ce81 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
 								data-id="622ce81" data-element_type="widget" data-widget_type="icon-list.default">
 								<ul class="elementor-icon-list-items">
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Home</span>
+										<a href="/">
+											<span class="elementor-icon-list-text" style="color: white;">Home</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Services</span>
+										<a href="./about-us.html">
+											<span class="elementor-icon-list-text" style="color: white;">About Us</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">About Us</span>
+										<a href="./services.html">
+											<span class="elementor-icon-list-text" style="color: white;">Services</span>
 										</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Project</span>
-										</a>
-									</li>
-									<li class="elementor-icon-list-item">
-										<a href="#">
-											<span class="elementor-icon-list-text">Blog</span>
+										<a href="./contact.html">
+											<span class="elementor-icon-list-text" style="color: white;">Contact</span>
 										</a>
 									</li>
 								</ul>
@@ -2372,7 +2480,8 @@
 							data-id="7796411" data-element_type="container">
 							<div class="elementor-element elementor-element-c8e6e2f elementor-widget elementor-widget-heading"
 								data-id="c8e6e2f" data-element_type="widget" data-widget_type="heading.default">
-								<h2 class="elementor-heading-title elementor-size-default">Contact Info</h2>
+								<h2 class="elementor-heading-title elementor-size-default" style="color: white;">Contact
+									Info</h2>
 							</div>
 							<div class="elementor-element elementor-element-c91ef66 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
 								data-id="c91ef66" data-element_type="widget" data-widget_type="icon-list.default">
@@ -2380,14 +2489,16 @@
 									<li class="elementor-icon-list-item">
 										<span class="elementor-icon-list-icon">
 											<i aria-hidden="true" class="fa-solid fa-envelope"></i> </span>
-										<span class="elementor-icon-list-text">contact@pspartners.ae</span>
+										<a href="mailto:contact@pspartners.ae" class="elementor-icon-list-text"
+											style="color: white;">contact@pspartners.ae</a>
 									</li>
 									<li class="elementor-icon-list-item">
-										<a href="#">
+										<a href="https://wa.me/+971545119500">
 
 											<span class="elementor-icon-list-icon">
 												<i aria-hidden="true" class="fa-solid fa-phone"></i> </span>
-											<span class="elementor-icon-list-text">+88 0123456789</span>
+											<span class="elementor-icon-list-text" style="color: white;"> +971 54 511
+												9500</span>
 										</a>
 									</li>
 								</ul>
@@ -2397,23 +2508,28 @@
 				</div>
 			</div>
 			<div class="elementor-element elementor-element-be7821a e-flex e-con-boxed e-con e-parent e-lazyloaded"
-				data-id="be7821a" data-element_type="container"
+				style="background-color: black;" data-id="be7821a" data-element_type="container"
 				data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 				<div class="e-con-inner">
 					<div class="elementor-element elementor-element-10f6e1a e-con-full e-flex e-con e-child"
 						data-id="10f6e1a" data-element_type="container">
 						<div class="elementor-element elementor-element-4e84512 elementor-widget elementor-widget-text-editor"
-							data-id="4e84512" data-element_type="widget" data-widget_type="text-editor.default">
+							data-id="4e84512" data-element_type="widget" data-widget_type="text-editor.default"
+							style="color: rgba(255, 255, 255, 0.75);">
 							Copyright © 2026 Pathway | All Rights
 							Reserved. </div>
 						<div class="elementor-element elementor-element-d49ebff elementor-icon-list--layout-inline elementor-tablet-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
 							data-id="d49ebff" data-element_type="widget" data-widget_type="icon-list.default">
+							<span style="color: rgba(255, 255, 255, 0.75);"><span style="font-weight: 700;">Registration
+									Number:</span> 11045
+								Umm Al Quwain Free Trade Zone Authority</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
+
 	<script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/hello-elementor\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
@@ -2464,9 +2580,9 @@
 	<script src="./index_files/react-dom.min.js.download" id="react-dom-js"></script>
 	<script src="./index_files/escape-html.min.js.download" id="wp-escape-html-js"></script>
 	<script src="./index_files/element.min.js.download" id="wp-element-js"></script>
-	<script id="metform-app-js-extra">
+	<!-- <script id="metform-app-js-extra">
 		var mf = { "postType": "envato_tk_templates", "restURI": "https:\/\/biznova.themewolfs.com\/wp-json\/metform\/v1\/forms\/views\/", "minMsg1": "Minimum length should be ", "Msg2": " character long.", "maxMsg1": "Maximum length should be ", "maxNum": "Maximum number should be ", "minNum": "Minimum number should be " };
-	</script>
+	</script> -->
 	<script src="./index_files/app.js.download" id="metform-app-js"></script>
 	<script src="./index_files/cute-alert.js.download" id="cute-alert-js"></script>
 	<script src="./index_files/hello-frontend.js.download" id="hello-theme-frontend-js"></script>
@@ -2481,7 +2597,20 @@
 	<script src="./index_files/lottie.min.js.download" id="lottie-js"></script>
 	<script src="./index_files/lottie.init.js.download" id="lottie-init-js"></script>
 
+	<!-- Cal element-click embed code begins -->
+	<script type="text/javascript">
+		(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+		Cal("init", "30min", { origin: "https://app.cal.com" });
 
+
+		// Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+		// `data-cal-link="pspartners/30min"`
+		// data-cal-namespace="30min"
+		// `data-cal-config='{"layout":"month_view","theme":"dark"}'`
+
+		Cal.ns["30min"]("ui", { "theme": "dark", "cssVarsPerTheme": { "dark": { "cal-brand": "#3a6f43" } }, "hideEventTypeDetails": true, "layout": "month_view" });
+	</script>
+	<!-- Cal element-click embed code ends -->
 
 	<script src="./index_files/swiper.min.js.download"></script>
 </body>
